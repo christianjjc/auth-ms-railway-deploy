@@ -11,7 +11,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { envs } from './config';
 import * as cookieParser from 'cookie-parser';
-import { NextFunction, Request, Response } from 'express';
+// import { NextFunction, Request, Response } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -19,10 +19,10 @@ async function bootstrap() {
 
   app.use(cookieParser(envs.cookieSecret));
 
-  app.use(function (request: Request, response: Response, next: NextFunction) {
-    response.setHeader('Access-Control-Allow-Origin', envs.clientUrlOnDeploy);
-    next();
-  });
+  // app.use(function (request: Request, response: Response, next: NextFunction) {
+  //   response.setHeader('Access-Control-Allow-Origin', envs.clientUrlOnDeploy);
+  //   next();
+  // });
 
   //* Configurar CORS para recibir las cookies
   app.enableCors({
@@ -33,7 +33,7 @@ async function bootstrap() {
     methods: 'GET,PATCH,POST,DELETE',
     credentials: true,
     // allowedHeaders: 'Content-Type, Accept', // Cabeceras permitidas
-    allowedHeaders: ['content-type', 'Access-Control-Allow-Origin'],
+    allowedHeaders: ['Content-Type', 'Access-Control-Allow-Origin', 'Authorization'], // Añade 'Authorization' si usas tokens
   });
 
   app.setGlobalPrefix('api');
