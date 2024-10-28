@@ -11,12 +11,18 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { envs } from './config';
 import * as cookieParser from 'cookie-parser';
+import { NextFunction, Request, Response } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const logger = new Logger('Bootstrap-Main');
 
   app.use(cookieParser(envs.cookieSecret));
+
+  app.use(function (request: Request, response: Response, next: NextFunction) {
+    response.setHeader('Access-Control-Allow-Origin', 'https://auth-starter.cjjc.pe/');
+    next();
+  });
 
   //* Configurar CORS para recibir las cookies
   app.enableCors({
