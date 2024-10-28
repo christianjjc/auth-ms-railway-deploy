@@ -105,5 +105,5 @@
     - Ruta: `http://localhost:3000/api/users`
     - Bearer Token: <`Enviar el token generado en el login`>
 
-[Enlace Repositorio]: https://github.com/christianjjc/auth-starter-apirest-jwt-cookies-deploy-railway.git
+[Enlace Repositorio]: https://github.com/christianjjc/auth-ms-railway-deploy.git
 [Enlace SeedData]: http://localhost:3000/api/seed
