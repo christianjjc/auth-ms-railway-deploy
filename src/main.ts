@@ -20,7 +20,11 @@ async function bootstrap() {
 
   //* Configurar CORS para recibir las cookies
   app.enableCors({
-    origin: '*', // Permitir cualquier origen
+    origin: [
+      'http://localhost:5173', // Tu localhost
+      //'https://dominio1.com',   // Primer dominio permitido
+      //'https://dominio2.com',   // Segundo dominio permitido
+    ], // Permitir cualquier origen
     methods: 'GET,PATCH,POST,DELETE',
     credentials: true,
     allowedHeaders: 'Content-Type, Accept', // Cabeceras permitidas
