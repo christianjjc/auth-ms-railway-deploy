@@ -20,7 +20,7 @@ async function bootstrap() {
   app.use(cookieParser(envs.cookieSecret));
 
   app.use(function (request: Request, response: Response, next: NextFunction) {
-    response.setHeader('Access-Control-Allow-Origin', 'https://auth-starter.cjjc.pe/');
+    response.setHeader('Access-Control-Allow-Origin', 'https://auth-starter.cjjc.pe');
     next();
   });
 
