@@ -33,7 +33,7 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(envs.port);
-  logger.log(`**Auth Micro Service** running on Port:${envs.port}`);
+  await app.listen(process.env.PORT);
+  logger.log(`**Auth Micro Service** running on Port:${process.env.PORT}`);
 }
 bootstrap();
