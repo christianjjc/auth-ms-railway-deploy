@@ -20,8 +20,10 @@ async function bootstrap() {
 
   //* Configurar CORS para recibir las cookies
   app.enableCors({
+    origin: '*', // Permitir cualquier origen
     methods: 'GET,PATCH,POST,DELETE',
     credentials: true,
+    allowedHeaders: 'Content-Type, Accept', // Cabeceras permitidas
   });
 
   app.setGlobalPrefix('api');
