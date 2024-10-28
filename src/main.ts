@@ -26,7 +26,8 @@ async function bootstrap() {
     ], // Permitir cualquier origen
     methods: 'GET,PATCH,POST,DELETE',
     credentials: true,
-    allowedHeaders: 'Content-Type, Accept', // Cabeceras permitidas
+    // allowedHeaders: 'Content-Type, Accept', // Cabeceras permitidas
+    allowedHeaders: ['content-type', 'Access-Control-Allow-Origin'],
   });
 
   app.setGlobalPrefix('api');
