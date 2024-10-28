@@ -20,6 +20,8 @@ interface EnvVars {
   CLOUDINARY_API_KEY: string;
   CLOUDINARY_API_SECRET: string;
   CLOUDINARY_UPLOAD_FOLDER: string;
+
+  CLIENT_URL_ON_DEPLOY: string;
 }
 
 const envsSchema = joi
@@ -43,6 +45,8 @@ const envsSchema = joi
     CLOUDINARY_API_KEY: joi.string().required(),
     CLOUDINARY_API_SECRET: joi.string().required(),
     CLOUDINARY_UPLOAD_FOLDER: joi.string().required(),
+
+    CLIENT_URL_ON_DEPLOY: joi.string().required(),
   })
   .unknown(true);
 
@@ -77,4 +81,6 @@ export const envs = {
   cloudinaryApiKey: envVars.CLOUDINARY_API_KEY,
   cloudinaryApiSecret: envVars.CLOUDINARY_API_SECRET,
   cloudinaryUploadFolder: envVars.CLOUDINARY_UPLOAD_FOLDER,
+
+  clientUrlOnDeploy: envVars.CLIENT_URL_ON_DEPLOY,
 };

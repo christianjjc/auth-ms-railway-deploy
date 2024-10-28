@@ -27,14 +27,16 @@ export const setRefreshTokenToHttpOnlyCookie = (response: Response, token: strin
      */
     path: '/',
     maxAge: 7 * 24 * 60 * 60 * 1000, //* --> 7 days
-    sameSite: 'strict',
+    sameSite: 'none',
     signed: true,
-    secure: true, // must set secure to false in development mode (API client can't access if secure is true)
+    secure: process.env.NODE_ENV === 'production', // Secure en producción
   });
 };
 
 export const terminateRefreshTokenHttpOnlyCookie = (response: Response) => {
   response.clearCookie(COOKIE_JWT_TOKEN_KEY_SERVICE, {
     path: '/',
+    sameSite: 'none',
+    secure: process.env.NODE_ENV === 'production', // Secure en producción
   });
 };

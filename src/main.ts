@@ -20,7 +20,7 @@ async function bootstrap() {
   app.use(cookieParser(envs.cookieSecret));
 
   app.use(function (request: Request, response: Response, next: NextFunction) {
-    response.setHeader('Access-Control-Allow-Origin', 'https://auth-starter.cjjc.pe');
+    response.setHeader('Access-Control-Allow-Origin', envs.clientUrlOnDeploy);
     next();
   });
 
@@ -28,7 +28,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:5173', // Tu localhost
-      'https://auth-starter.cjjc.pe/', // Primer dominio permitido
+      envs.clientUrlOnDeploy, // Primer dominio permitido
     ], // Permitir cualquier origen
     methods: 'GET,PATCH,POST,DELETE',
     credentials: true,
