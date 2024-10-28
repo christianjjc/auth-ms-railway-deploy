@@ -1,0 +1,16 @@
+version: '4'
+
+services:
+  auth-db:
+    container_name: cont_ms_auth_db
+    # image: postgres:14.3
+    image: postgres:16.2
+    restart: always
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
