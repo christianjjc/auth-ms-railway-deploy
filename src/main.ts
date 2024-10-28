@@ -22,8 +22,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:5173', // Tu localhost
-      //'https://dominio1.com',   // Primer dominio permitido
-      //'https://dominio2.com',   // Segundo dominio permitido
+      'https://auth-starter.cjjc.pe/', // Primer dominio permitido
     ], // Permitir cualquier origen
     methods: 'GET,PATCH,POST,DELETE',
     credentials: true,
